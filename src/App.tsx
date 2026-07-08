@@ -3,18 +3,6 @@ import { useEffect, useState } from "react"
 const projects = [
   {
     year: "2026",
-    eyebrow: "LLM systems · Education tooling",
-    title: "Building a glass-box transformer lab.",
-    summary:
-      "An interactive FastAPI + Next.js system for pre-training and fine-tuning decoder-only transformers from scratch, with live loss curves, attention heatmaps, logit-lens inspection, LoRA/SFT workflows, and configuration-aware code walkthroughs.",
-    metric: "LLM",
-    metricLabel: "training + inference",
-    tags: ["PyTorch", "FastAPI", "Next.js", "LoRA", "Playwright"],
-    theme: "llm",
-    href: "https://www.buildanllm.com/",
-  },
-  {
-    year: "2026",
     eyebrow: "AI safety · Benchmarking",
     title: "Testing boundaries in high-stakes AI assistance.",
     summary:
@@ -159,18 +147,6 @@ function ProjectVisual({ theme }: { theme: string }) {
         <div className="visual-label"><span>EARLY SIGNAL</span><strong>0.82</strong><small>MODEL CONFIDENCE</small></div>
         <div className="radar"><i /><i /><i /><b /><b /><b /><b /></div>
         <span className="visual-caption">Environmental health monitor / 06:42</span>
-      </div>
-    )
-  }
-  if (theme === "llm") {
-    return (
-      <div className="project-visual visual-llm" aria-hidden="true">
-        <div className="visual-label"><span>DECODER-ONLY</span><strong>GPT</strong><small>TRAINING LAB</small></div>
-        <div className="llm-board">
-          <i /><i /><i /><i /><i /><i />
-          <b /><b /><b /><b />
-        </div>
-        <span className="visual-caption">Attention / LoRA / logit lens / sampling</span>
       </div>
     )
   }
