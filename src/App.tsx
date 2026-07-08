@@ -3,25 +3,49 @@ import { useEffect, useState } from "react"
 const projects = [
   {
     year: "2026",
+    eyebrow: "LLM systems · Education tooling",
+    title: "Building a glass-box transformer lab.",
+    summary:
+      "An interactive FastAPI + Next.js system for pre-training and fine-tuning decoder-only transformers from scratch, with live loss curves, attention heatmaps, logit-lens inspection, LoRA/SFT workflows, and configuration-aware code walkthroughs.",
+    metric: "LLM",
+    metricLabel: "training + inference",
+    tags: ["PyTorch", "FastAPI", "Next.js", "LoRA", "Playwright"],
+    theme: "llm",
+    href: "https://www.buildanllm.com/",
+  },
+  {
+    year: "2026",
     eyebrow: "AI safety · Benchmarking",
     title: "Testing boundaries in high-stakes AI assistance.",
     summary:
       "A safety-first benchmark for measuring whether AI systems can distinguish permissible scientific discussion from assistance that crosses dangerous boundaries in mirror-molecule and mirror-life contexts.",
     metric: "Safety",
     metricLabel: "boundary benchmark",
-    tags: ["Python", "Evaluation", "AI Safety"],
+    tags: ["Python CLI", "LLM evals", "JSONL", "Ollama/Qwen"],
     theme: "mirror",
     href: "https://github.com/nathannguyen-coder/mirror-boundary-bench",
   },
   {
     year: "2026",
-    eyebrow: "Machine learning · Public health",
-    title: "Finding outbreaks before they spread.",
+    eyebrow: "Biosecurity · Metagenomics",
+    title: "Turning wastewater reads into analyst-ready signals.",
     summary:
-      "An end-to-end machine-learning pipeline using environmental data to surface early signals of vector-borne disease, with responsible sourcing and model evaluation built in.",
-    metric: "AI4ALL",
-    metricLabel: "Ignite fellow",
-    tags: ["Python", "Classification", "Responsible AI"],
+      "A defensive wastewater-surveillance dashboard that transforms public NCBI SRA taxonomy profiles into QC-aware anomaly signals, feature-level explanations, typed API responses, and a static deployable analyst experience.",
+    metric: "31",
+    metricLabel: "SRA runs analyzed",
+    tags: ["FastAPI", "React", "Nextflow", "Docker", "CLR analysis"],
+    theme: "wastewater",
+    href: "https://nathannguyen-coder.github.io/wastewater-watch/",
+  },
+  {
+    year: "2026",
+    eyebrow: "Machine learning · Public health",
+    title: "Forecasting outbreak risk without leaking the future.",
+    summary:
+      "A leakage-safe dengue forecasting pipeline with expanding-window validation, recursive case-lag prediction, calibrated outbreak classification, and two-stage policies for balancing MAE against outbreak-week recall.",
+    metric: "51.6%",
+    metricLabel: "outbreak recall",
+    tags: ["Python", "pandas", "scikit-learn", "Forecasting"],
     theme: "outbreak",
   },
   {
@@ -32,7 +56,7 @@ const projects = [
       "Analysis and geospatial storytelling that helped shape New Jersey’s cleaner-refrigerants incentive program and direct support toward high-emitting, underserved communities.",
     metric: "$15M",
     metricLabel: "program informed",
-    tags: ["SAP", "ArcGIS Pro", "Policy"],
+    tags: ["SAP", "ArcGIS Pro", "Geospatial analysis"],
     theme: "climate",
   },
   {
@@ -43,9 +67,52 @@ const projects = [
       "A research project combining statistical analysis, SQL, interactive dashboards, and random-forest models to forecast prices and classify volatility.",
     metric: "24h",
     metricLabel: "ahead forecasting",
-    tags: ["Python", "SQL", "Power BI"],
+    tags: ["Python", "SQL", "Power BI", "Random forest"],
     theme: "market",
     href: "https://github.com/nathannguyen-coder/electricity_market",
+  },
+]
+
+const skillGroups = [
+  {
+    category: "Languages",
+    summary: "The base layer for modeling, dashboards, automation, and technical writing.",
+    items: ["Python", "TypeScript", "JavaScript", "SQL", "Bash", "C / C++", "LaTeX", "Lua", "JSON / JSONL"],
+  },
+  {
+    category: "AI, ML & LLM systems",
+    summary: "From classic forecasting to transformer internals and safety evaluation.",
+    items: ["PyTorch", "Transformer architecture", "Pre-training", "Supervised fine-tuning", "LoRA", "Inference / sampling", "LLM eval harnesses", "Ollama / Qwen", "Agents + tool use", "RAG", "OpenAI / Anthropic APIs"],
+  },
+  {
+    category: "Data science & analytics",
+    summary: "The practical stack behind your public-health, energy, and policy work.",
+    items: ["pandas", "NumPy", "scikit-learn", "Forecasting", "Classification", "Calibration", "Expanding-window validation", "Jupyter / Colab", "Power BI", "Matplotlib"],
+  },
+  {
+    category: "Bioinformatics & scientific computing",
+    summary: "A differentiating layer for healthcare, surveillance, and safety-oriented projects.",
+    items: ["NCBI SRA", "Metagenomics", "Metatranscriptomics", "Nextflow", "Compositional data", "CLR transforms", "QC workflows", "Model cards", "Data sheets"],
+  },
+  {
+    category: "Web & product engineering",
+    summary: "Interactive products, not just notebooks.",
+    items: ["React", "Next.js", "Vite", "Tailwind CSS", "Responsive design", "Three.js / GSAP / Framer Motion", "Plotly", "Recharts", "KaTeX", "Static dashboards"],
+  },
+  {
+    category: "Backend, APIs & databases",
+    summary: "Service layers for dashboards, analysis apps, and model-facing tools.",
+    items: ["FastAPI", "Flask / Django", "Node.js / Express", "REST APIs", "GraphQL", "WebSockets", "Postgres", "MySQL", "SQLite", "Supabase"],
+  },
+  {
+    category: "DevOps, infra & testing",
+    summary: "Shipping and validating the full user flow end to end.",
+    items: ["Git / GitHub", "GitHub Pages", "GitHub Actions", "Vercel", "AWS", "Docker / Compose", "Kubernetes", "Cloudflare", "Linux", "pytest", "Ruff", "Playwright", "Vitest"],
+  },
+  {
+    category: "Editors & AI dev tools",
+    summary: "The tools you use to move fast while keeping the work legible.",
+    items: ["Neovim", "Cursor", "PyCharm / VS Code", "Claude Code", "Copilot", "Antigravity", "ChatGPT", "Claude", "Gemini", "NotebookLM"],
   },
 ]
 
@@ -59,6 +126,7 @@ const experience = [
 const navItems = [
   ["Home", "#home"],
   ["Work", "#work"],
+  ["Skills", "#skills"],
   ["Experience", "#experience"],
   ["Contact", "#contact"],
 ]
@@ -91,6 +159,29 @@ function ProjectVisual({ theme }: { theme: string }) {
         <div className="visual-label"><span>EARLY SIGNAL</span><strong>0.82</strong><small>MODEL CONFIDENCE</small></div>
         <div className="radar"><i /><i /><i /><b /><b /><b /><b /></div>
         <span className="visual-caption">Environmental health monitor / 06:42</span>
+      </div>
+    )
+  }
+  if (theme === "llm") {
+    return (
+      <div className="project-visual visual-llm" aria-hidden="true">
+        <div className="visual-label"><span>DECODER-ONLY</span><strong>GPT</strong><small>TRAINING LAB</small></div>
+        <div className="llm-board">
+          <i /><i /><i /><i /><i /><i />
+          <b /><b /><b /><b />
+        </div>
+        <span className="visual-caption">Attention / LoRA / logit lens / sampling</span>
+      </div>
+    )
+  }
+  if (theme === "wastewater") {
+    return (
+      <div className="project-visual visual-wastewater" aria-hidden="true">
+        <div className="visual-label"><span>ANOMALY REVIEW</span><strong>QC</strong><small>METAGENOMIC SIGNALS</small></div>
+        <div className="wastewater-flow">
+          <i /><i /><i /><i /><i /><i /><i />
+        </div>
+        <span className="visual-caption">NCBI SRA / CLR anomaly engine / FastAPI</span>
       </div>
     )
   }
@@ -241,9 +332,31 @@ function App() {
         })}
       </section>
 
+      <section className="skills page-frame" id="skills" aria-hidden={!introUnlocked}>
+        <div className="skills-heading" data-reveal>
+          <span className="section-index">02 / Technical skills</span>
+          <h2>The stack behind the work.</h2>
+          <p>Grouped from your portfolio projects, shipped dashboards, model pipelines, and the skills you want represented clearly.</p>
+        </div>
+        <div className="skills-grid">
+          {skillGroups.map((group, index) => (
+            <article className="skill-card" key={group.category} data-reveal>
+              <span>0{index + 1}</span>
+              <div>
+                <h3>{group.category}</h3>
+                <p>{group.summary}</p>
+                <div className="skill-tags">
+                  {group.items.map((item) => <span key={item}>{item}</span>)}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section className="experience page-frame" id="experience" aria-hidden={!introUnlocked}>
         <div className="experience-heading" data-reveal>
-          <span className="section-index">02 / Experience</span>
+          <span className="section-index">03 / Experience</span>
           <h2>Across the lab, the market, and the public sector.</h2>
           <div className="education-card">
             <small>Education</small>
@@ -274,7 +387,7 @@ function App() {
       </section>
 
       <section className="contact page-frame" id="contact" aria-hidden={!introUnlocked}>
-        <span className="section-index">03 / Contact</span>
+        <span className="section-index">04 / Contact</span>
         <div className="contact-title" data-reveal><span>LET’S MAKE</span><span>SOMETHING</span><span>IMPACTFUL.</span></div>
         <div className="contact-bottom">
           <p>Always happy to meet thoughtful people working across healthcare, climate, AI, or the useful spaces between them.</p>
