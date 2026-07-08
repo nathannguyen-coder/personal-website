@@ -61,49 +61,6 @@ const projects = [
   },
 ]
 
-const skillGroups = [
-  {
-    category: "Languages",
-    summary: "The base layer for modeling, dashboards, automation, and technical writing.",
-    items: ["Python", "TypeScript", "JavaScript", "SQL", "Bash", "C / C++", "LaTeX", "Lua", "JSON / JSONL"],
-  },
-  {
-    category: "AI, ML & LLM systems",
-    summary: "From classic forecasting to transformer internals and safety evaluation.",
-    items: ["PyTorch", "Transformer architecture", "Pre-training", "Supervised fine-tuning", "LoRA", "Inference / sampling", "LLM eval harnesses", "Ollama / Qwen", "Agents + tool use", "RAG", "OpenAI / Anthropic APIs"],
-  },
-  {
-    category: "Data science & analytics",
-    summary: "The practical stack behind your public-health, energy, and policy work.",
-    items: ["pandas", "NumPy", "scikit-learn", "Forecasting", "Classification", "Calibration", "Expanding-window validation", "Jupyter / Colab", "Power BI", "Matplotlib"],
-  },
-  {
-    category: "Bioinformatics & scientific computing",
-    summary: "A differentiating layer for healthcare, surveillance, and safety-oriented projects.",
-    items: ["NCBI SRA", "Metagenomics", "Metatranscriptomics", "Nextflow", "Compositional data", "CLR transforms", "QC workflows", "Model cards", "Data sheets"],
-  },
-  {
-    category: "Web & product engineering",
-    summary: "Interactive products, not just notebooks.",
-    items: ["React", "Next.js", "Vite", "Tailwind CSS", "Responsive design", "Three.js / GSAP / Framer Motion", "Plotly", "Recharts", "KaTeX", "Static dashboards"],
-  },
-  {
-    category: "Backend, APIs & databases",
-    summary: "Service layers for dashboards, analysis apps, and model-facing tools.",
-    items: ["FastAPI", "Flask / Django", "Node.js / Express", "REST APIs", "GraphQL", "WebSockets", "Postgres", "MySQL", "SQLite", "Supabase"],
-  },
-  {
-    category: "DevOps, infra & testing",
-    summary: "Shipping and validating the full user flow end to end.",
-    items: ["Git / GitHub", "GitHub Pages", "GitHub Actions", "Vercel", "AWS", "Docker / Compose", "Kubernetes", "Cloudflare", "Linux", "pytest", "Ruff", "Playwright", "Vitest"],
-  },
-  {
-    category: "Editors & AI dev tools",
-    summary: "The tools you use to move fast while keeping the work legible.",
-    items: ["Neovim", "Cursor", "PyCharm / VS Code", "Claude Code", "Copilot", "Antigravity", "ChatGPT", "Claude", "Gemini", "NotebookLM"],
-  },
-]
-
 const experience = [
   ["Summer 2026", "Commercial Analytics Intern", "Menarini Stemline", "Analyzing product performance, customer engagement, and the competitive landscape to identify opportunities for the next business cycle."],
   ["2025 — 2026", "Strategy Intern", "Merck & Co.", "Built a pediatric-vaccine forecast and translated regulatory, market, and disease-area research into portfolio recommendations."],
@@ -114,7 +71,6 @@ const experience = [
 const navItems = [
   ["Home", "#home"],
   ["Work", "#work"],
-  ["Skills", "#skills"],
   ["Experience", "#experience"],
   ["Contact", "#contact"],
 ]
@@ -308,31 +264,9 @@ function App() {
         })}
       </section>
 
-      <section className="skills page-frame" id="skills" aria-hidden={!introUnlocked}>
-        <div className="skills-heading" data-reveal>
-          <span className="section-index">02 / Technical skills</span>
-          <h2>The stack behind the work.</h2>
-          <p>Grouped from your portfolio projects, shipped dashboards, model pipelines, and the skills you want represented clearly.</p>
-        </div>
-        <div className="skills-grid">
-          {skillGroups.map((group, index) => (
-            <article className="skill-card" key={group.category} data-reveal>
-              <span>0{index + 1}</span>
-              <div>
-                <h3>{group.category}</h3>
-                <p>{group.summary}</p>
-                <div className="skill-tags">
-                  {group.items.map((item) => <span key={item}>{item}</span>)}
-                </div>
-              </div>
-            </article>
-          ))}
-        </div>
-      </section>
-
       <section className="experience page-frame" id="experience" aria-hidden={!introUnlocked}>
         <div className="experience-heading" data-reveal>
-          <span className="section-index">03 / Experience</span>
+          <span className="section-index">02 / Experience</span>
           <h2>Across the lab, the market, and the public sector.</h2>
           <div className="education-card">
             <small>Education</small>
@@ -363,7 +297,7 @@ function App() {
       </section>
 
       <section className="contact page-frame" id="contact" aria-hidden={!introUnlocked}>
-        <span className="section-index">04 / Contact</span>
+        <span className="section-index">03 / Contact</span>
         <div className="contact-title" data-reveal><span>LET’S MAKE</span><span>SOMETHING</span><span>IMPACTFUL.</span></div>
         <div className="contact-bottom">
           <p>Always happy to meet thoughtful people working across healthcare, climate, AI, or the useful spaces between them.</p>
