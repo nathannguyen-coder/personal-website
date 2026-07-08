@@ -63,6 +63,8 @@ const navItems = [
   ["Contact", "#contact"],
 ]
 
+const portraitSrc = `${import.meta.env.BASE_URL}nathan-portrait.jpeg`
+
 function Arrow({ diagonal = false }: { diagonal?: boolean }) {
   return (
     <svg aria-hidden="true" viewBox="0 0 24 24" className="arrow" fill="none">
@@ -206,7 +208,7 @@ function App() {
         <svg className="portrait-scribble" viewBox="0 0 1000 300" aria-hidden="true">
           <path d="M30 210C145 34 170 251 277 97c67-98 61 151 168 22 81-97 22 156 163 28 85-78 66 102 166 12 78-70 102 22 194-75" />
         </svg>
-        <img src="/nathan-portrait.jpeg" alt="Nathan Nguyen standing beneath a Princeton stone arch" />
+        <img src={portraitSrc} alt="Nathan Nguyen standing beneath a Princeton stone arch" />
       </section>
 
       <section className="work page-frame" id="work" aria-hidden={!introUnlocked}>
