@@ -9,7 +9,7 @@ const projects = [
       "A live openFDA adverse-event dashboard that computes disproportionality signals (ROR/PRR) by drug, event, and demographic group, backed by a Python signal service, a SQL-backed cache, and built-in bias and causality guardrails.",
     metric: "Live",
     metricLabel: "openFDA signal feed",
-    tags: ["FastAPI", "React/Vite", "SQL cache", "ROR/PRR signals"],
+    tags: ["Python", "FastAPI", "TypeScript", "React", "SQLite cache"],
     theme: "drugsafety",
     href: "https://github.com/nathannguyen-coder/drug-safety-signal-dashboard",
   },
@@ -337,7 +337,7 @@ function App() {
       <section className="experience page-frame" id="experience" aria-hidden={!introUnlocked}>
         <div className="experience-heading" data-reveal>
           <span className="section-index">02 / Experience</span>
-          <h2>Across the lab, the market, and the public sector.</h2>
+          <h2>Across the lab, private industry, and the public sector.</h2>
           <div className="education-card">
             <small>Education</small>
             <strong>Princeton University</strong>
