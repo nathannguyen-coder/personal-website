@@ -3,6 +3,30 @@ import { useEffect, useState } from "react"
 const projects = [
   {
     year: "2026",
+    eyebrow: "Public health · Pharmacovigilance",
+    title: "Turning FAERS reports into responsible safety signals.",
+    summary:
+      "A live openFDA adverse-event dashboard that computes disproportionality signals (ROR/PRR) by drug, event, and demographic group, backed by a Python signal service, a SQL-backed cache, and built-in bias and causality guardrails.",
+    metric: "Live",
+    metricLabel: "openFDA signal feed",
+    tags: ["FastAPI", "React/Vite", "SQL cache", "ROR/PRR signals"],
+    theme: "drugsafety",
+    href: "https://github.com/nathannguyen-coder/drug-safety-signal-dashboard",
+  },
+  {
+    year: "2026",
+    eyebrow: "AI safety · Policy RAG",
+    title: "A citation-grounded reference layer for mirror-life policy.",
+    summary:
+      "A retrieval-augmented system over the public mirror-life governance debate — hybrid BM25 and vector retrieval, a pre-retrieval boundary gate that refuses synthesis or protocol questions by construction, and citations back to the primary consensus statement and technical report.",
+    metric: "1,400",
+    metricLabel: "policy chunks indexed",
+    tags: ["FastAPI", "ChromaDB", "BM25 hybrid", "Boundary gate"],
+    theme: "governance",
+    href: "https://github.com/nathannguyen-coder/mirror-governance-rag",
+  },
+  {
+    year: "2026",
     eyebrow: "AI safety · Benchmarking",
     title: "Testing boundaries in high-stakes AI assistance.",
     summary:
@@ -35,6 +59,7 @@ const projects = [
     metricLabel: "outbreak recall",
     tags: ["Python", "pandas", "scikit-learn", "Forecasting"],
     theme: "outbreak",
+    href: "https://github.com/nathannguyen-coder/dengue-forecasting-model",
   },
   {
     year: "2025",
@@ -55,7 +80,7 @@ const projects = [
       "A research project combining statistical analysis, SQL, interactive dashboards, and random-forest models to forecast prices and classify volatility.",
     metric: "24h",
     metricLabel: "ahead forecasting",
-    tags: ["Python", "SQL", "Power BI", "Random forest"],
+    tags: ["Python", "SQL", "Power BI", "XGBoost"],
     theme: "market",
     href: "https://github.com/nathannguyen-coder/electricity_market",
   },
@@ -110,10 +135,53 @@ function ProjectVisual({ theme }: { theme: string }) {
     return (
       <div className="project-visual visual-wastewater" aria-hidden="true">
         <div className="visual-label"><span>ANOMALY REVIEW</span><strong>QC</strong><small>METAGENOMIC SIGNALS</small></div>
-        <div className="wastewater-flow">
-          <i /><i /><i /><i /><i /><i /><i />
-        </div>
+        <svg className="wastewater-chart" viewBox="0 0 800 380" preserveAspectRatio="none">
+          <path className="qc-band" d="M0 120H800" />
+          <path className="qc-band" d="M0 260H800" />
+          <path className="qc-trend" d="M0 210C90 205 150 200 220 198C300 196 360 202 430 200C500 198 560 195 630 193C690 191 740 190 800 189" />
+          <g className="qc-points">
+            <circle cx="40" cy="205" r="5" /><circle cx="120" cy="200" r="5" /><circle cx="200" cy="198" r="5" />
+            <circle cx="280" cy="202" r="5" /><circle cx="440" cy="199" r="5" /><circle cx="520" cy="196" r="5" />
+            <circle cx="680" cy="198" r="5" /><circle cx="760" cy="192" r="5" />
+          </g>
+          <g className="qc-flag-group"><circle className="qc-flag-ring" cx="360" cy="94" r="8" /><circle className="qc-flag" cx="360" cy="94" r="6" /></g>
+          <g className="qc-flag-group"><circle className="qc-flag-ring" cx="600" cy="292" r="8" /><circle className="qc-flag" cx="600" cy="292" r="6" /></g>
+        </svg>
         <span className="visual-caption">NCBI SRA / CLR anomaly engine / FastAPI</span>
+      </div>
+    )
+  }
+  if (theme === "drugsafety") {
+    return (
+      <div className="project-visual visual-drugsafety" aria-hidden="true">
+        <div className="visual-label"><span>SIGNAL REVIEW</span><strong>PRR</strong><small>ADVERSE EVENT SCREENING</small></div>
+        <div className="drugsafety-stat"><small>TOP SIGNAL</small><strong>ROR 4.2×</strong></div>
+        <div className="drugsafety-chart">
+          <span className="ds-threshold" />
+          <div className="drugsafety-bars"><i /><i /><i /><i /><i className="is-signal" /><i /><i /></div>
+        </div>
+        <span className="visual-caption">openFDA FAERS / ROR·PRR signal math / React dashboard</span>
+      </div>
+    )
+  }
+  if (theme === "governance") {
+    return (
+      <div className="project-visual visual-governance" aria-hidden="true">
+        <div className="visual-label"><span>BOUNDARY GATE</span><strong>RAG</strong><small>POLICY CITATION GRAPH</small></div>
+        <svg className="governance-graph" viewBox="0 0 700 500" preserveAspectRatio="xMidYMid meet">
+          <line className="gg-gate" x1="350" y1="20" x2="350" y2="480" />
+          <g className="gg-links">
+            <line x1="350" y1="250" x2="120" y2="90" /><line x1="350" y1="250" x2="90" y2="250" />
+            <line x1="350" y1="250" x2="120" y2="410" /><line x1="350" y1="250" x2="580" y2="120" />
+            <line x1="350" y1="250" x2="610" y2="250" /><line x1="350" y1="250" x2="580" y2="380" />
+          </g>
+          <circle className="gg-node" cx="120" cy="90" r="8" /><circle className="gg-node" cx="90" cy="250" r="8" />
+          <circle className="gg-node" cx="120" cy="410" r="8" /><circle className="gg-node" cx="610" cy="250" r="8" />
+          <circle className="gg-node" cx="580" cy="380" r="8" />
+          <g className="gg-flag-group"><circle className="gg-flag-ring" cx="580" cy="120" r="8" /><circle className="gg-node gg-flag" cx="580" cy="120" r="8" /></g>
+          <circle className="gg-node gg-core" cx="350" cy="250" r="14" />
+        </svg>
+        <span className="visual-caption">Hybrid retrieval / 24 docs · 1,400 chunks / pre-retrieval gate</span>
       </div>
     )
   }
@@ -241,27 +309,29 @@ function App() {
           <p>A few problems I’ve followed from messy evidence to useful direction.</p>
         </div>
 
-        {projects.map((project, index) => {
-          const inside = (
-            <>
-              <div className="project-top"><span>{project.year}</span><span>{project.eyebrow}</span><span>0{index + 1}</span></div>
-              <ProjectVisual theme={project.theme} />
-              <div className="project-copy">
-                <div><h3>{project.title}</h3><p>{project.summary}</p></div>
-                <div className="project-meta">
-                  <div className="metric"><strong>{project.metric}</strong><span>{project.metricLabel}</span></div>
-                  <div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+        <div className="project-grid">
+          {projects.map((project, index) => {
+            const inside = (
+              <>
+                <div className="project-top"><span>{project.year}</span><span>{project.eyebrow}</span><span>0{index + 1}</span></div>
+                <ProjectVisual theme={project.theme} />
+                <div className="project-copy">
+                  <div><h3>{project.title}</h3><p>{project.summary}</p></div>
+                  <div className="project-meta">
+                    <div className="metric"><strong>{project.metric}</strong><span>{project.metricLabel}</span></div>
+                    <div className="tags">{project.tags.map((tag) => <span key={tag}>{tag}</span>)}</div>
+                  </div>
                 </div>
-              </div>
-              {project.href && <span className="view-project">View project <Arrow diagonal /></span>}
-            </>
-          )
-          return project.href ? (
-            <a className="project" href={project.href} target="_blank" rel="noreferrer" key={project.title} data-reveal>{inside}</a>
-          ) : (
-            <article className="project" key={project.title} data-reveal>{inside}</article>
-          )
-        })}
+                {project.href && <span className="view-project">View project <Arrow diagonal /></span>}
+              </>
+            )
+            return project.href ? (
+              <a className="project" href={project.href} target="_blank" rel="noreferrer" key={project.title} data-reveal>{inside}</a>
+            ) : (
+              <article className="project" key={project.title} data-reveal>{inside}</article>
+            )
+          })}
+        </div>
       </section>
 
       <section className="experience page-frame" id="experience" aria-hidden={!introUnlocked}>
