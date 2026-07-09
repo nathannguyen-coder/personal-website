@@ -7,8 +7,8 @@ const projects = [
     title: "Turning FAERS reports into responsible safety signals.",
     summary:
       "A live openFDA adverse-event dashboard that computes disproportionality signals (ROR/PRR) by drug, event, and demographic group, backed by a Python signal service, a SQL-backed cache, and built-in bias and causality guardrails.",
-    metric: "Live",
-    metricLabel: "openFDA signal feed",
+    metric: "12h",
+    metricLabel: "signal cache window",
     tags: ["Python", "FastAPI", "TypeScript", "React", "Recharts", "SQLite cache"],
     theme: "drugsafety",
     href: "https://github.com/nathannguyen-coder/drug-safety-signal-dashboard",
@@ -31,8 +31,8 @@ const projects = [
     title: "Testing boundaries in high-stakes AI assistance.",
     summary:
       "A safety-first benchmark for measuring whether AI systems can distinguish permissible scientific discussion from assistance that crosses dangerous boundaries in mirror-molecule and mirror-life contexts.",
-    metric: "Safety",
-    metricLabel: "boundary benchmark",
+    metric: "12",
+    metricLabel: "boundary prompts screened",
     tags: ["Python CLI", "LLM evals", "JSONL", "Ollama/Qwen"],
     theme: "mirror",
     href: "https://github.com/nathannguyen-coder/mirror-boundary-bench",
@@ -60,17 +60,6 @@ const projects = [
     tags: ["Python", "pandas", "scikit-learn", "Forecasting"],
     theme: "outbreak",
     href: "https://github.com/nathannguyen-coder/dengue-forecasting-model",
-  },
-  {
-    year: "2025",
-    eyebrow: "Data analysis · Climate policy",
-    title: "Turning 30,000 records into climate action.",
-    summary:
-      "Analysis and geospatial storytelling that helped shape New Jersey’s cleaner-refrigerants incentive program and direct support toward high-emitting, underserved communities.",
-    metric: "$15M",
-    metricLabel: "program informed",
-    tags: ["SAP", "ArcGIS Pro", "Geospatial analysis"],
-    theme: "climate",
   },
   {
     year: "2025",
@@ -182,16 +171,6 @@ function ProjectVisual({ theme }: { theme: string }) {
           <circle className="gg-node gg-core" cx="350" cy="250" r="14" />
         </svg>
         <span className="visual-caption">Hybrid retrieval / 24 docs · 1,400 chunks / pre-retrieval gate</span>
-      </div>
-    )
-  }
-  if (theme === "climate") {
-    return (
-      <div className="project-visual visual-climate" aria-hidden="true">
-        <div className="orbit o1" /><div className="orbit o2" /><div className="orbit o3" />
-        <div className="pin p1" /><div className="pin p2" /><div className="pin p3" /><div className="pin p4" /><div className="pin p5" />
-        <div className="climate-stat"><small>FACILITIES MAPPED</small><strong>1,000+</strong></div>
-        <span className="visual-caption">New Jersey / environmental justice overlay</span>
       </div>
     )
   }
