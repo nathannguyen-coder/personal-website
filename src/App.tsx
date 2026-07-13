@@ -52,7 +52,7 @@ const projects = [
   {
     year: "2026",
     eyebrow: "Machine learning · Public health",
-    title: "Forecasting outbreak risk without leaking the future.",
+    title: "Forecasting outbreak risk from real-time evidence.",
     summary:
       "A leakage-safe dengue forecasting pipeline with expanding-window validation, recursive case-lag prediction, calibrated outbreak classification, and two-stage policies for balancing MAE against outbreak-week recall.",
     metric: "51.6%",
@@ -284,7 +284,7 @@ function App() {
       <section className="work page-frame" id="work" aria-hidden={!introUnlocked}>
         <div className="section-heading" data-reveal>
           <span className="section-index">01 / Selected work</span>
-          <h2>Work with a pulse.</h2>
+          <h2>Building for public good.</h2>
           <p>A few problems I’ve followed from messy evidence to useful direction.</p>
         </div>
 
