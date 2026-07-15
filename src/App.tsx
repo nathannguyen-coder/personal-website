@@ -3,6 +3,18 @@ import { useEffect, useState } from "react"
 const projects = [
   {
     year: "2026",
+    eyebrow: "Computer vision · Edge AI",
+    title: "Identifying held objects without uploading the camera feed.",
+    summary:
+      "A mobile-ready object detector that keeps camera frames on-device, runs EfficientDet inference in a background Web Worker, and ranks likely held objects with stabilized confidence scores.",
+    metric: "0",
+    metricLabel: "frames uploaded",
+    tags: ["MediaPipe", "EfficientDet", "Web Workers", "WebAssembly", "GitHub Pages"],
+    theme: "vision",
+    href: "https://nathannguyen-coder.github.io/holdsense/",
+  },
+  {
+    year: "2026",
     eyebrow: "Public health · Pharmacovigilance",
     title: "Turning FAERS reports into responsible safety signals.",
     summary:
@@ -100,6 +112,19 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 function ProjectVisual({ theme }: { theme: string }) {
+  if (theme === "vision") {
+    return (
+      <div className="project-visual visual-vision" aria-hidden="true">
+        <div className="visual-label"><span>ON-DEVICE VISION</span><strong>LIVE</strong><small>NO FRAME UPLOADS</small></div>
+        <div className="vision-frame">
+          <i className="vision-box" />
+          <b>CUP · 92%</b>
+          <span className="vision-reticle" />
+        </div>
+        <span className="visual-caption">EfficientDet / Web Worker / mobile camera</span>
+      </div>
+    )
+  }
   if (theme === "mirror") {
     return (
       <div className="project-visual visual-mirror" aria-hidden="true">
