@@ -7,8 +7,8 @@ const projects = [
     title: "Identifying held objects without uploading the camera feed.",
     summary:
       "A mobile-ready object detector that keeps camera frames on-device, runs EfficientDet inference in a background Web Worker, and ranks likely held objects with stabilized confidence scores.",
-    metric: "0",
-    metricLabel: "frames uploaded",
+    metric: "100%",
+    metricLabel: "on-device inference",
     tags: ["MediaPipe", "EfficientDet", "Web Workers", "WebAssembly", "GitHub Pages"],
     theme: "vision",
     href: "https://nathannguyen-coder.github.io/holdsense/",
