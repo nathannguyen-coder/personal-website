@@ -1,0 +1,8 @@
+/* Preserve the latest deployed HoldSense artwork (gh-pages 638fac9). */
+.vision-reticle { top:52%; width:clamp(54px,12cqi,84px); height:clamp(42px,9cqi,62px); border:clamp(3px,.6cqi,4px) solid #7ee4ff; border-top:0; border-radius:6px 6px 18px 18px; filter:drop-shadow(0 0 10px rgba(126,228,255,.3)); }
+.vision-reticle:before { display:none; }
+.vision-reticle:after { top:18%; right:-31%; width:29%; height:44%; border:clamp(3px,.6cqi,4px) solid #7ee4ff; border-left:0; border-radius:0 14px 14px 0; }
+.visual-fly { background:radial-gradient(ellipse at 35% 65%,#163d42,transparent 55%),#0c181c; }
+.visual-fly .visual-label strong { font-size:clamp(46px,8cqi,112px); }
+.fly-circuit-art { position:absolute; width:90%; height:62%; left:5%; bottom:7%; }
+@media(max-width:700px) { .fly-circuit-art { width:100%; left:0; height:57%; bottom:10%; } .visual-fly .visual-label strong { font-size:clamp(32px,10cqi,64px); } }

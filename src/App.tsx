@@ -3,6 +3,18 @@ import { useEffect, useState } from "react"
 const projects = [
   {
     year: "2026",
+    eyebrow: "Computational neuroscience · Embodied simulation",
+    title: "Fly Arena: from connectome to simulated movement.",
+    summary:
+      "An exploratory MaleCNS v1.0 rate model coupled to a simulated fly in an odor environment. Inspect real neuron anatomy, all 25.6 million recorded connections, and high-contrast activity synchronized with a continuous 10-second recording. Includes configurable starting positions and a reproducible Colab notebook; not a validated biological emulation.",
+    metric: "165,122",
+    metricLabel: "traced neurons modeled",
+    tags: ["Python", "MaleCNS v1.0", "FlyGym", "MuJoCo", "WebGL", "Colab"],
+    theme: "fly",
+    href: "https://github.com/nathannguyen-coder/fly-arena",
+  },
+  {
+    year: "2026",
     eyebrow: "Computer vision · Edge AI",
     title: "Identifying held objects without uploading the camera feed.",
     summary:
@@ -112,6 +124,27 @@ function Arrow({ diagonal = false }: { diagonal?: boolean }) {
 }
 
 function ProjectVisual({ theme }: { theme: string }) {
+  if (theme === "fly") {
+    return (
+      <div className="project-visual visual-fly" aria-hidden="true">
+        <div className="visual-label"><span>CONNECTOME → BEHAVIOR</span><strong>Fly Arena</strong><small>REAL ANATOMY · MODELED ACTIVITY</small></div>
+        <svg className="fly-circuit-art" viewBox="0 0 800 380">
+          <g fill="none" stroke="#739795" strokeWidth="1.5">
+            <path d="M130 160 230 110 335 165 230 245 130 160 335 165M230 110V245M130 160 160 280 230 245M335 165 410 205 545 205" />
+            <path d="M545 205 620 155 690 165M545 205 620 255 690 245M545 205 590 205 650 205" strokeDasharray="5 8" />
+          </g>
+          <g fill="#19d4ea"><circle cx="130" cy="160" r="13"/><circle cx="230" cy="245" r="17"/><circle cx="160" cy="280" r="8"/></g>
+          <g fill="#ff864f"><circle cx="230" cy="110" r="19"/><circle cx="335" cy="165" r="12"/><circle cx="410" cy="205" r="8"/></g>
+          <g fill="none" stroke="#dfebca" strokeWidth="3">
+            <ellipse cx="555" cy="185" rx="16" ry="29"/><ellipse cx="555" cy="222" rx="13" ry="23"/><circle cx="555" cy="145" r="12"/>
+            <path d="M544 173 509 151 488 123M566 173 601 151 622 123M539 190H496L476 206M571 190H614L634 206M543 216 514 240 503 267M567 216 596 240 607 267"/>
+          </g>
+          <circle cx="710" cy="205" r="27" fill="none" stroke="#dfebca" strokeDasharray="3 6"/><circle cx="710" cy="205" r="7" fill="#dfebca"/>
+        </svg>
+        <span className="visual-caption">Schematic / odor input → neural rates → engineered gait</span>
+      </div>
+    )
+  }
   if (theme === "vision") {
     return (
       <div className="project-visual visual-vision" aria-hidden="true">
